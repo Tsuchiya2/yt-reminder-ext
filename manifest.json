@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube 新着通知 & 終了45秒前リマインド",
+  "version": "1.0.0",
+  "description": "対象チャンネルの新着を通知し、視聴時は終了45秒前に高評価を促す通知を表示します。",
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.youtube.com/feeds/videos.xml*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/watch*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "YT Reminder"
+  }
+}

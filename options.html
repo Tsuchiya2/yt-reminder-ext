@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>設定</title>
+  <style>body{font-family:sans-serif;margin:24px;max-width:720px}label{display:block;margin:10px 0}</style>
+</head>
+<body>
+  <h1>YouTube 通知の設定</h1>
+
+  <label>Channel ID:
+    <input id="channelId" style="width:420px">
+  </label>
+
+  <label>チェック時刻（JST, カンマ区切り 例: 20:00,20:15）
+    <input id="times" style="width:420px">
+  </label>
+
+  <label>曜日（0=日〜6=土, 例: 3,6）
+    <input id="days" style="width:220px">
+  </label>
+
+  <button id="save">保存</button>
+  <button id="reset" style="margin-left:8px">既定に戻す</button>
+  <span id="msg" style="margin-left:10px"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>
