@@ -1,7 +1,7 @@
 // 既定値（ここにチャンネルIDを固定）
 const DEFAULTS = {
   channelId: "UCwjx6ZG4pwCvAPSozYEWymA",
-  checkTimesJst: ["20:00","20:15"],
+  checkTimesJst: ["19:00","19:15"],
   weekdaysToCheck: [3,6]
 };
 

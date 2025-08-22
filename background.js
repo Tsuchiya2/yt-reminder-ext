@@ -1,7 +1,7 @@
 // === 既定設定（オプションで上書き可能） ===
 const DEFAULTS = {
   channelId: "UCwjx6ZG4pwCvAPSozYEWymA", // エンジニア転職チャンネル
-  checkTimesJst: ["20:00", "20:15"],     // 公開遅れに備えて複数回
+  checkTimesJst: ["19:00", "19:15"],     // 公開遅れに備えて複数回
   weekdaysToCheck: [3, 6]                // 0=日,1=月,...,6=土（ここでは水・土）
 };
 
