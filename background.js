@@ -1,7 +1,7 @@
 // === 既定設定（オプションで上書き可能） ===
 const DEFAULTS = {
   channelId: "UCwjx6ZG4pwCvAPSozYEWymA", // エンジニア転職チャンネル
-  checkTimesJst: ["19:00", "19:15"],     // 公開遅れに備えて複数回
+  checkTimesJst: ["19:02"],     // 公開遅れに備えて複数回
   weekdaysToCheck: [3, 6]                // 0=日,1=月,...,6=土（ここでは水・土）
 };
 
@@ -174,9 +174,12 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
     console.log("[yt-reminder] NEAR_END_NOTIFY received for", msg.videoId, "from tab", sender?.tab?.id);
     const id = `near-end-${msg.videoId}-${Date.now()}`;
 
-    const onClick = (nid, btnIdx) => {
+    const onClick = async (nid, btnIdx) => {
       if (nid !== id) return;
-      if (btnIdx === 0 && sender?.tab?.id) chrome.tabs.update(sender.tab.id, { active: true });
+      if (btnIdx === 0 && sender?.tab?.id) {
+        try { await chrome.tabs.update(sender.tab.id, { active: true }); }
+        catch(e){ console.warn("[yt-reminder] tabs.update failed (no permission needed, safe to ignore):", e); }
+      }
       chrome.notifications.clear(nid);
       chrome.notifications.onButtonClicked.removeListener(onClick);
     };
