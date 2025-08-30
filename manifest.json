@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube 新着通知 & 終了45秒前リマインド",
-  "version": "1.0.31",
+  "version": "1.0.3",
   "description": "対象チャンネルの新着を通知し、視聴時は終了45秒前に高評価を促す通知を表示します。",
   "permissions": [
     "alarms",
